@@ -18,6 +18,12 @@ class ContactsController < ApplicationController
   end
 
   def create
+    @contact = current_user.contacts.build(contact_params)
+    if @contact.save
+      redirect_to @contact, notice: "Contact was successfully created."
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -38,6 +44,10 @@ class ContactsController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless @user == current_user
+    end
+
+    def contact_params
+      params.require(:contact).permit(:name, :status, :method, :action_items, :conversation_date, :follow_up_date)
     end
 
 end

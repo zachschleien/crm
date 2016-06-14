@@ -1,6 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8">Contacts</div>
+      <% @contacts.each do |contact| %>
+      <p><%= contact.name %></p>
+      <p><%= contact.status %></p>
+      <p><%= contact.method %></p>
+      <p><%= contact.action_items %></p>
+      <p><%= contact.conversation_date.strftime("%B %d, %Y") %></p>
+      <p><%= contact.follow_up_date.strftime("%B %d, %Y") %></p>
+      <% end %>
     <div class="col-xs-6 col-md-4">Follow Up</div>
   </div>
+
 </div>
