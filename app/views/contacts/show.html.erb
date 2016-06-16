@@ -1,7 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-8">
-      <%= @contact.name %>
-    </div>
+
+<div class="row">
+
+  <div class="col-md-6 col-md-8">
+    <p> Name: <%= @contact.name %></p>
+    <p>Status: <%= @contact.status %></p>
+    <p>Method: <%= @contact.method %></p>
+    <p>Action Items <%= @contact.action_items %></p>
+    <p>Conversation Date: <%= @contact.conversation_date.strftime("%B %d, %Y")  %></p>
+    <p>Follow Up Date: <%= @contact.follow_up_date.strftime("%B %d, %Y")  %></p>
   </div>
+</div>
 </div>
