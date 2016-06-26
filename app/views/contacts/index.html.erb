@@ -1,8 +1,58 @@
-<div class="row">
-  <div class="col-md-6">Contacts</div>
-  <% @contacts.each do |contact| %>
-    <%= link_to contact.name, contact %>
-  <% end %>
-  <div class="col-md-6">Follow Up</div>
+<h1 class="contacts-header">Contacts</h1>
+<div id="contacts">
+  <div class="col-lg-8">
+    <% @contacts.each do |contact| %>
+      <div class="contact">
+        <h2 class="name">
+          <%= link_to contact.name, contact %>
+        </h2>
+      </div>
+      <p class="status">
+        <%= contact.status %>
+      </p>
+      <p class="method">
+        <%= contact.method %>
+      </p>
+      <p class="action-items">
+        <%= contact.action_items %>
+      </p>
+      <p class="conversation-date">
+        <%= contact.conversation_date %>
+      </p>
+      <p class="follow-up-date">
+        <%= contact.follow_up_date %>
+      </p>
+    <% end %>
+  </div>
 </div>
+
+<h1 class="agenda-header">Agenda</h1>
+<div id="agenda">
+  <div class="col-lg-4">
+    <% @contacts.each do |contact| %>
+      <div class="contact">
+        <h2 class="name">
+          <%= link_to contact.name, contact %>
+        </h2>
+      </div>
+      <p class="status">
+        <%= contact.status %>
+      </p>
+      
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
