@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @contacts = Contact.all
+    @contacts = Contact.all.order("follow_up_date DESC")
   end
 
   def show
