@@ -31,14 +31,12 @@
   <div class="col-lg-4">
     <% @contacts.each do |contact| %>
       <div class="contact">
-        <h2 class="name">
+        <p>
+          <%= contact.follow_up_date.strftime("%B %d, %Y") %>
           <%= link_to contact.name, contact %>
-        </h2>
+        </p>
       </div>
-      <p class="status">
-        <%= contact.status %>
-      </p>
-      
+
     <% end %>
   </div>
 </div>
@@ -54,5 +52,5 @@
 
 
 
-  
+
 
