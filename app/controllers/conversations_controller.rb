@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :set_contact
-  before_action :set_conversation, except: [:create]
+  before_action :set_conversation, except: [:create, :new]
 
 
   def create
@@ -29,11 +29,11 @@ class ConversationsController < ApplicationController
     end
 
     def set_conversation
-      @conversation = @contact.conversation.find(params[:id])
+      @conversation = @contact.conversations.find(params[:id])
     end
 
     def conversation_params
-      params.require[:conversation].permit(:topic, :contact_method, :next_step, :last_contacted, :follow_up_date, :conversation_completed)
+      params[:conversation].permit(:topic, :contact_method, :next_step, :last_contacted, :follow_up_date, :conversation_completed)
     end
 
 end

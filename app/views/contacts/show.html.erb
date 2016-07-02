@@ -1,12 +1,9 @@
-<h2 class="conversations">Conversations</h2>
+<h2 class="conversations"><%= @contact.name %>'s Conversations</h2>
 
 <div id="conversations_wrapper">
   <%= render @contact.conversations %>
+  <%= link_to 'New Conversation', new_contact_conversation_path(@contact) %>
 
-<p class="status"><%= @conversation.topic %></p>
-<p class="contact-method"><%= @conversation.contact_method %></p>
-<p class="next-step"><%= @conversation.next_step %></p>
-<p class="last-contacted"><%= @conversation.last_contacted %></p>
-<p class="follow-up-date"><%= @conversation.follow_up_date %></p>
+
 
 </div>

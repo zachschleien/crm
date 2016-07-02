@@ -1,31 +1,19 @@
-<div class="row clearfix">
-  <% if conversation.conversation_completed? %>
-    <div class="complete">
-      <%= link_to conversation_completed_contact_conversation_path(@contact, conversation.id), method: :patch do %>
-        <i style="opacity: 0.4;" class="fa fa-check"></i>
-      <% end %>
-    </div>
-    <div class="conversation">
-      <p style="opacity: 0.4;"><strike><%= conversation.topic %></strike></p>
-    </div>
-    <div class="trash">
-      <%= link_to contact_conversation_path(@contact, conversation.id), method: :delete, data: { confirm: "Are you sure?" } do %>
-        <i class="fa fa-trash"></i>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="complete">
-      <%= link_to complete_contact_conversation_path(@contact, conversation.id), method: :patch do %>
-        <i class="fa fa-check"></i>
-      <% end %>
-    </div>
-    <div class="conversation">
-      <p><%= conversation.topic %></p>
-    </div>
-    <div class="trash">
-      <%= link_to contact_conversation_path(@contact, conversation.id), method: :delete, data: { confirm: "Are you sure?" } do %>
-        <i class="fa fa-trash"></i>
-      <% end %>
-    </div>
+<!-- <h2 class="contact-name"><%= @contact.name %></h2> -->
+
+<p class="conversation-topic"><%= conversation.topic %></p>
+<p class="contact-method">
+  <% if conversation.contact_method == "1" %>
+  In-person
+  <% elsif conversation.contact_method == "2" %>
+  Phone
+  <% elsif conversation.contact_method == "3" %>
+  Email
+  <% elsif conversation.contact_method == "4" %>
+  Text
+  <% else conversation.contact_method == "5" %>
+  Social Media
   <% end %>
-</div>
+<p class="next-step"><%= conversation.next_step %></p>
+<p class="last-contacted"><%= conversation.last_contacted.strftime("%B %d, %Y") %></p>
+<p class="follow-up-date"><%= conversation.follow_up_date.strftime("%B %d, %Y") %></p>
+<br>
