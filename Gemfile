@@ -17,6 +17,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry-rails', '~> 0.3.4'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
