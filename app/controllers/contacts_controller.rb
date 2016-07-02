@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @contacts = Contact.all.order("follow_up_date DESC")
+    @contacts = Contact.all
   end
 
   def show
@@ -47,7 +47,7 @@ class ContactsController < ApplicationController
     end
 
     def contact_params
-      params.require(:contact).permit(:name, :status, :method, :action_items, :conversation_date, :follow_up_date)
+      params.require(:contact).permit(:name)
 
     end
 
