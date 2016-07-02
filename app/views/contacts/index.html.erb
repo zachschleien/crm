@@ -7,21 +7,6 @@
           <%= link_to contact.name, contact %>
         </h2>
       </div>
-      <p class="status">
-        <%= contact.status %>
-      </p>
-      <p class="method">
-        <%= contact.method %>
-      </p>
-      <p class="action-items">
-        <%= contact.action_items %>
-      </p>
-      <p class="conversation-date">
-        <%= contact.conversation_date %>
-      </p>
-      <p class="follow-up-date">
-        <%= contact.follow_up_date %>
-      </p>
     <% end %>
   </div>
 </div>
@@ -32,8 +17,7 @@
     <% @contacts.each do |contact| %>
       <div class="contact">
         <p>
-          <%= contact.follow_up_date.strftime("%B %d, %Y") %>
-          <%= link_to contact.name, contact %>
+          
         </p>
       </div>
 

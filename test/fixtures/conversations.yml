@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contact: one
+  topic: MyText
+  contact_method: MyString
+  next_step: MyText
+  last_contacted: 2016-07-02 08:16:57
+  follow_up_date: 2016-07-02 08:16:57
+  conversation_completed: false
+
+two:
+  contact: two
+  topic: MyText
+  contact_method: MyString
+  next_step: MyText
+  last_contacted: 2016-07-02 08:16:57
+  follow_up_date: 2016-07-02 08:16:57
+  conversation_completed: false

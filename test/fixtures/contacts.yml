@@ -3,17 +3,7 @@
 one:
   user: one
   name: MyString
-  status: MyText
-  method: MyString
-  action_items: MyText
-  conversation_date: 2016-06-12 15:11:19
-  follow_up_date: 2016-06-12 15:11:19
 
 two:
   user: two
   name: MyString
-  status: MyText
-  method: MyString
-  action_items: MyText
-  conversation_date: 2016-06-12 15:11:19
-  follow_up_date: 2016-06-12 15:11:19

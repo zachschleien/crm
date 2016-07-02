@@ -1,22 +1,12 @@
-<%= link_to 'Back', contacts_path %>
+<h2 class="conversations">Conversations</h2>
 
-<div class="row clearfix">
-  <% if @contact.status.complete?  %>
+<div id="conversations_wrapper">
+  <%= render @contact.conversations %>
 
-      <div class="complete">
-      <%= link_to contact_path(@contact, contact.id), method: :patch do %>
-        <i style="opacity: 0.4;" class="fa fa-check"></i>
-      <% end %>
-    <% end %>
+<p class="status"><%= @conversation.topic %></p>
+<p class="contact-method"><%= @conversation.contact_method %></p>
+<p class="next-step"><%= @conversation.next_step %></p>
+<p class="last-contacted"><%= @conversation.last_contacted %></p>
+<p class="follow-up-date"><%= @conversation.follow_up_date %></p>
 
-      <div class="col-md-6 col-md-8">
-        <p> Name: <%= @contact.name %></p>
-        <p>Status: <%= @contact.status %></p>
-        <p>Method: <%= @contact.method %></p>
-        <p>Action Items <%= @contact.action_items %></p>
-        <p>Conversation Date: <%= @contact.conversation_date.strftime("%B %d, %Y")  %></p>
-        <p>Follow Up Date: <%= @contact.follow_up_date.strftime("%B %d, %Y")  %></p>
-      </div>
-    </div>
-  </div>
 </div>

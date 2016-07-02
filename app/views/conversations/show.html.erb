@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<h2 class="contact_title"><%= @contact.name %></h2>
+
+<div id="conversations_wrapper">
+  <%= render @contact.conversations %>
+  <div id="form">
+    <%= render "conversations/form" %>
+  </div>
+</div>
+
+<div class="links">
+  <%= link_to 'Edit', edit_contact_path(@contact) %> |
+  <%= link_to 'Delete', contact_path(@contact), method: :delete, data: { confirm: "Are you sure?" }
+ %> |
+  <%= link_to 'Back', contacts_path %>
+</div>
