@@ -1,6 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :update, :destroy]
   before_action :authenticate_user!, except: [:index]
 
   def index
@@ -27,13 +26,17 @@ class ContactsController < ApplicationController
   end
 
   def update
+    if @contact.update(contact_params)
+      redirect_to root_url, notice: 'Contact was successfully updated.'
+    else
+      render 'edit'
+    end
   end
-
 
   def destroy
+    @contact.destroy
+    redirect_to root_url, notice: 'Contact was successfully deleted.'
   end
-
-
 
   private
 
@@ -41,14 +44,8 @@ class ContactsController < ApplicationController
       @contact = Contact.find(params[:id])
     end
 
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless @user == current_user
-    end
-
     def contact_params
       params.require(:contact).permit(:name)
-
     end
 
 end
