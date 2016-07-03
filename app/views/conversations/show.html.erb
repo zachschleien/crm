@@ -4,13 +4,13 @@
 <div id="conversations_wrapper">
   <%= render @contact.conversations %>
   <div id="form">
-    <%= render "conversations/form" %>
+    <%= render 'conversations/form' %>
   </div>
 </div>
 
 <div class="links">
-  <%= link_to 'Edit', edit_contact_path(@contact) %> |
-  <%= link_to 'Delete', contact_path(@contact), method: :delete, data: { confirm: "Are you sure?" }
+  <%= link_to 'Edit', edit_contact_conversation_path(@contact, conversation.id) %> |
+  <%= link_to 'Delete', contact_conversation_path(@contact, conversation.id), method: :delete, data: { confirm: "Are you sure?" }
  %> |
   <%= link_to 'Back', contacts_path %>
 </div>

@@ -2,7 +2,6 @@ class ConversationsController < ApplicationController
   before_action :set_contact
   before_action :set_conversation, except: [:create, :new]
 
-
   def create
     @conversation = @contact.conversations.create(conversation_params)
     redirect_to @contact
