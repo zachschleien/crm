@@ -17,3 +17,11 @@
 <p class="last-contacted"><%= conversation.last_contacted.strftime("%B %d, %Y") %></p>
 <p class="follow-up-date"><%= conversation.follow_up_date.strftime("%B %d, %Y") %></p>
 <br>
+
+<div class="links">
+  <%= link_to 'Edit Conversation', edit_contact_conversation_path(@contact, conversation.id) %> |
+  <%= link_to 'Delete Conversation', contact_conversation_path(@contact, conversation.id), method: :delete, data: { confirm: "Are you sure?" }
+ %> |
+  <%= link_to 'Back', contacts_path %>
+</div>
+
