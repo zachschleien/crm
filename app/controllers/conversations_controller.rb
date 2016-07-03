@@ -2,9 +2,21 @@ class ConversationsController < ApplicationController
   before_action :set_contact
   before_action :set_conversation, except: [:create, :new]
 
+  def edit
+    @conversation = Conversation.find(params[:id])
+  end
+
   def create
     @conversation = @contact.conversations.create(conversation_params)
     redirect_to @contact
+  end
+
+  def update
+    if @conversation.update(conversation_params)
+      redirect_to @contact, notice: 'Conversation was successfully updated.'
+    else
+      render 'edit'
+    end
   end
 
   def destroy
