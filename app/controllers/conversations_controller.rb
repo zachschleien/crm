@@ -2,6 +2,10 @@ class ConversationsController < ApplicationController
   before_action :set_contact
   before_action :set_conversation, except: [:create, :new]
 
+  def new
+    @conversation = @contact.conversations.build
+  end
+
   def edit
     @conversation = Conversation.find(params[:id])
   end
