@@ -1,4 +1,5 @@
-<%= form_for([@contact, @contact.conversations.build]) do |f| %>
+<!-- removed: .conversations.build -->
+<%= form_for([@contact, @conversation]) do |f| %>
   <div class="form-group">
       <%= f.label :topic, 'What Was Your Previous Conversation About?' %>
       <%= f.text_field :topic, class: "form-control" %>
