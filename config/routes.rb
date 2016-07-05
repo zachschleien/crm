@@ -6,8 +6,9 @@ Rails.application.routes.draw do
         patch :conversation_completed
       end
     end
-  end 
-  
+  end
+
   devise_for :users
   root 'contacts#index'
+  get 'history' => 'history#history'
 end

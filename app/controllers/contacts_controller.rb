@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @contacts = Contact.all
+    @contacts = Contact.all.order('created_at DESC')
   end
 
   def show
