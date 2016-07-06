@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160702121657) do
+ActiveRecord::Schema.define(version: 20160706232639) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "user_id"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20160702121657) do
     t.datetime "last_contacted"
     t.datetime "follow_up_date"
     t.boolean  "conversation_completed"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "history",                default: false
     t.index ["contact_id"], name: "index_conversations_on_contact_id"
   end
 
