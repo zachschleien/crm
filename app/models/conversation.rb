@@ -4,4 +4,5 @@ class Conversation < ApplicationRecord
   # def conversation_completed?
   #   !completed_at.blank?
   # end
+
 end

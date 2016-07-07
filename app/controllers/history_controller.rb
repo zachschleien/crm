@@ -1,6 +1,8 @@
 class HistoryController < ApplicationController
 
-  def history
-    @history =
-  end
+def show
+  @contact = Contact.find(params[:id])
+  @history = @contact.conversations.where(history)
+end
+
 end
