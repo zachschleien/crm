@@ -5,4 +5,5 @@ class Conversation < ApplicationRecord
   #   !completed_at.blank?
   # end
 
+
 end

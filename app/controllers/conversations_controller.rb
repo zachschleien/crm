@@ -3,7 +3,9 @@ class ConversationsController < ApplicationController
   before_action :set_conversation, except: [:create, :new]
 
   def index
-    @conversations = @contact.conversations.all.order('created_at DESC')
+  end
+
+  def show
   end
 
   def new

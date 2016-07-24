@@ -15,8 +15,9 @@
   Social Media
   <% end %>
 <p class="next-step"><%= conversation.next_step %></p>
-<p class="last-contacted"><%= conversation.last_contacted.strftime("%B %d, %Y") %></p>
-<p class="follow-up-date"><%= conversation.follow_up_date.strftime("%B %d, %Y") %></p>
+<p class="last-contacted"><%= conversation.last_contacted %></p>
+<p class="follow-up-date"><%= conversation.follow_up_date %></p>
+<p class="history"><%= conversation.history %></p>
 <br>
 
 <div class="links">

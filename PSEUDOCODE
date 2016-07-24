@@ -1,0 +1,59 @@
+PSEUDOCODE
+
+Filter conversations on the contact show view by history
+
+CONTACT MODEL
+create a method FILTER_BY_HISTORY that accepts the collection of conversations for the particular contact and returns those instances of contact.conversations where history = FALSE
+
+def filter_by_history(conversations)
+
+end
+
+HISTORY VIEW (SHOW)
+create HISTORY show view where conversations for a particular contact where history = true
+Return those instances of the particular conversation where contact.conversation.history = false by Calling bang on FILTER_BY_HISTORY
+
+CONTACT CONTROLLER
+create instance variables:
+
+  @conversations = filter_by_history(Contact.conversations)
+  @conversations = Contact.conversations.where(history: false)
+
+  def self.filter
+    @conversations.each do |conversation|
+    result = []
+      if conversation.history == true
+      result << conversation
+      end
+    result
+  end
+
+//////////////////////////////
+User.where(subscribed_to_newsletter: true).each do #something
+
+
+#File: users.rb
+class User < ActiveRecord::Base
+  scope :newsletter, where(subscribed_to_newsletter: true)
+  #yada yada
+end
+This allows you to access your subscribers by simply doing this:
+
+User.newsletter.each do #something
+
+@expense_list = @project.expenses.for_user(current_user).all
+
+/////////////FILTER METHOD/////////
+MODEL
+  def filter_by_history(conversations)
+    @conversations = conversations.reject {|conversation| conversation.history == true }
+  end
+
+  def filter_by
+
+  end
+
+CONTROLLER
+@conversations = @contact.filter_by_history(@contact.conversations)
+
+
