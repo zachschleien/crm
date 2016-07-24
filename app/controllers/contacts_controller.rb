@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact.conversations = @contact.filter_by_history(@contact.conversations)
+    @contact.conversations = Contact.filter_by_history(@contact.conversations)
   end
 
   def new
