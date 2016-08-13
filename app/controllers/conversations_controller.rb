@@ -1,18 +1,18 @@
 class ConversationsController < ApplicationController
-  before_action :set_contact
+  before_action :set_contact 
   before_action :set_conversation, except: [:create, :new]
 
   def new
     @conversation = @contact.conversations.build
   end
 
-  def edit
-    @conversation = Conversation.find(params[:id])
-  end
-
   def create
     @conversation = @contact.conversations.create(conversation_params)
     redirect_to @contact
+  end
+
+  def edit
+    @conversation = Conversation.find(params[:id])
   end
 
   def update
@@ -30,11 +30,6 @@ class ConversationsController < ApplicationController
       flash[:error] = "Conversation could not be deleted."
     end
     redirect_to @contact
-  end
-
-  def conversation_completed?
-    @conversation.update_attribute(:conversation_completed, Time.now)
-    redirect_to @contact, notice: "Conversation completed"
   end
 
   private

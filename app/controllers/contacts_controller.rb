@@ -7,14 +7,11 @@ class ContactsController < ApplicationController
   end
 
   def show
+    @contact.conversations = @contact.conversations.where(history: false)
   end
 
   def new
     @contact = current_user.contacts.build
-  end
-
-  def edit
-    @contact = Contact.find(params[:id])
   end
 
   def create
@@ -24,6 +21,10 @@ class ContactsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @contact = Contact.find(params[:id])
   end
 
   def update
