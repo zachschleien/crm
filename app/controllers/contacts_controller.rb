@@ -7,7 +7,6 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact.conversations = Contact.filter_by_history(@contact.conversations)
   end
 
   def new
@@ -29,7 +28,7 @@ class ContactsController < ApplicationController
 
   def update
     if @contact.update(contact_params)
-      redirect_to root_url, notice: 'Contact was successfully updated.'
+      redirect_to contact_path(@contact), notice: 'Contact was successfully updated.'
     else
       render 'edit'
     end
