@@ -32,6 +32,21 @@ class ConversationsController < ApplicationController
     redirect_to @contact
   end
 
+  # def send_to_history
+  #   @conversation = Conversation.find(params[:id])
+  #   @conversation.update_attributes(history: true)
+  #   redirect_to projects_path(history: false)
+  # end
+
+  def downgrade
+     @wikis = current_user.wikis
+     @user = User.find(params[:id])
+     @user.update_attribute(:premium, false)
+     @wikis.each do |wiki|
+       wiki.update_attribute(:private, false)
+     end 
+   end
+
   private
 
     def set_contact
