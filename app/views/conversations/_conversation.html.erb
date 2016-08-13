@@ -24,6 +24,7 @@
   <%= link_to 'Edit Conversation', edit_contact_conversation_path(@contact, conversation.id) %> |
   <%= link_to 'Delete Conversation', contact_conversation_path(@contact, conversation.id), method: :delete, data: { confirm: "Are you sure?" }
  %> |
+ <%= link_to 'Send Conversation to History', history_path(@contact, conversation.id) %> |
   <%= link_to 'Back', contacts_path %>
 </div>
 

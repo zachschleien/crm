@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'contacts#index'
-  get 'contacts/:id/history' => 'history#show'
+  get 'contacts/:id/history' => 'history#show', as: 'history'
 end
