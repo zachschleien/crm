@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-  before_action :set_contact 
+  before_action :set_contact
   before_action :set_conversation, except: [:create, :new]
 
   def new
@@ -38,14 +38,14 @@ class ConversationsController < ApplicationController
   #   redirect_to projects_path(history: false)
   # end
 
-  def downgrade
-     @wikis = current_user.wikis
-     @user = User.find(params[:id])
-     @user.update_attribute(:premium, false)
-     @wikis.each do |wiki|
-       wiki.update_attribute(:private, false)
-     end 
-   end
+  # def downgrade
+  #    @wikis = current_user.wikis
+  #    @user = User.find(params[:id])
+  #    @user.update_attribute(:premium, false)
+  #    @wikis.each do |wiki|
+  #      wiki.update_attribute(:private, false)
+  #    end
+  #  end
 
   private
 

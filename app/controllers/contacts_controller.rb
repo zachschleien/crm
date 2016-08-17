@@ -6,10 +6,6 @@ class ContactsController < ApplicationController
     @contacts = Contact.all.order('created_at DESC')
   end
 
-  def show
-    @contact.conversations = @contact.conversations.where(history: false)
-  end
-
   def new
     @contact = current_user.contacts.build
   end
@@ -39,6 +35,13 @@ class ContactsController < ApplicationController
     @contact.destroy
     redirect_to root_url, notice: 'Contact was successfully deleted.'
   end
+
+
+
+  # def complete
+  #     @todo_item.update_attribute(:completed_at, Time.now)
+  #     redirect_to @todo_list, notice: "Todo item completed"
+  #   end
 
   private
 
