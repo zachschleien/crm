@@ -3,7 +3,8 @@
 <div class="links">
   <%= link_to 'New Conversation', new_contact_conversation_path(@contact) %> |
   <%= link_to 'Edit Contact', edit_contact_path(@contact) %> |
-  <%= link_to 'Delete Contact', contact_path(@contact), method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to 'Delete Contact', contact_path(@contact), method: :delete, data: { confirm: "Are you sure?" } %> |
+  <%= link_to 'Archived Conversations', contact_history_index_path(@contact) %>
 </div>
 <br>
 
