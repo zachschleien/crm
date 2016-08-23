@@ -1,6 +1,12 @@
 <h1 class="contacts-header">Contacts</h1>
 <div id="contacts">
   <div class="col-lg-8">
+  <% if @contacts.empty? && !user_signed_in? %>
+    <p><strong>Sign up/Log in to add your first contact.</strong></p>
+  <% elsif %>
+   <% user_signed_in? && @contacts.empty? %>
+   <p><strong>No contacts. Add your first contact <%= link_to "here", new_contact_path %> </strong></p>
+   <% end %>
     <% @contacts.each do |contact| %>
       <div class="contact">
         <h2 class="name">
@@ -9,7 +15,7 @@
           <%= link_to 'Edit', edit_contact_path(contact) %> |
           <%= link_to 'Delete', contact_path(contact), method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
-    <% end %>
+  <% end %>
   </div>
 </div>
 

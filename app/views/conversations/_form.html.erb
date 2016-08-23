@@ -16,12 +16,12 @@
 
     <div class="form-group">
       <%= f.label :last_contacted %>
-      <%= f.date_field :last_contacted, class: "form-control" %>
+      <%= f.date_field :last_contacted, value: Time.now.strftime("%Y-%m-%d"), class: "form-control" %>
     </div>
 
     <div class="form-group">
       <%= f.label :follow_up_date %>
-      <%= f.date_field :follow_up_date, class: "form-control" %>
+      <%= f.date_field :follow_up_date, value: Time.now.strftime("%Y-%m-%d"), class: "form-control" %>
     </div>
 
     <div class="form-group">
