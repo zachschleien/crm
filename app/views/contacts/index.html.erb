@@ -1,6 +1,12 @@
 <h1 class="contacts-header">Contacts</h1>
 <div id="contacts">
   <div class="col-lg-8">
+  <% if @contacts.empty? && !user_signed_in? %>
+    <p><strong>Sign up/Log in to add your first contact.</strong></p>
+  <% elsif %>
+   <% user_signed_in? && @contacts.empty? %>
+   <p><strong>No contacts. Add your first contact <%= link_to "here", new_contact_path %> </strong></p>
+   <% end %>
     <% @contacts.each do |contact| %>
       <div class="contact">
         <h2 class="name">
@@ -9,7 +15,7 @@
           <%= link_to 'Edit', edit_contact_path(contact) %> |
           <%= link_to 'Delete', contact_path(contact), method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
-    <% end %>
+  <% end %>
   </div>
 </div>
 
@@ -20,14 +26,14 @@
       <div class="contact">
         <p>
           <% contact.conversations.each do |conversation| %>
+            <% if conversation.history == false %>
           <ul>
-            <li><%= conversation.follow_up_date.try(:strftime, "%B %d, %Y") %> <%= link_to contact.name, contact %></li>
+            <li><%= link_to contact.name, contact %> | <%= conversation.next_step %>  | <%= conversation.follow_up_date.try(:strftime, "%B %d, %Y") %> </li>
           </ul>
           <% end %>
+        <% end %>
         </p>
       </div>
-
-
     <% end %>
   </div>
 </div>
