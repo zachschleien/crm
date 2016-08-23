@@ -4,6 +4,7 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = Contact.all.order('created_at DESC')
+    @conversations = Conversation.where(history: false)
   end
 
   def new

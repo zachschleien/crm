@@ -1,8 +1,7 @@
-<!-- <h2 class="contact-name"><%= @contact.name %></h2> -->
 <br>
 
-<p class="conversation-topic"><%= conversation.topic %></p>
-<p class="contact-method">
+<p class="conversation-topic">Topic: <%= conversation.topic %></p>
+<p class="contact-method">Contact Method:
   <% if conversation.contact_method == "1" %>
   In-person
   <% elsif conversation.contact_method == "2" %>
@@ -14,10 +13,9 @@
   <% else conversation.contact_method == "5" %>
   Social Media
   <% end %>
-<p class="next-step"><%= conversation.next_step %></p>
-<p class="last-contacted"><%= conversation.last_contacted %></p>
-<p class="follow-up-date"><%= conversation.follow_up_date %></p>
-<p class="history"><%= conversation.history %></p>
+  <p class="next-step">Next Step: <%= conversation.next_step %></p>
+  <p class="last-contacted">Last Contacted: <%= conversation.last_contacted.try(:strftime, "%B %d, %Y") %></p>
+  <p class="follow-up-date">Follow Up: <%= conversation.follow_up_date.try(:strftime, "%B %d, %Y") %></p>
 <br>
 
 <div class="links">

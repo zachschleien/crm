@@ -20,14 +20,14 @@
       <div class="contact">
         <p>
           <% contact.conversations.each do |conversation| %>
+            <% if conversation.history == false %>
           <ul>
-            <li><%= conversation.follow_up_date.try(:strftime, "%B %d, %Y") %> <%= link_to contact.name, contact %></li>
+            <li><%= link_to contact.name, contact %> | <%= conversation.next_step %>  | <%= conversation.follow_up_date.try(:strftime, "%B %d, %Y") %> </li>
           </ul>
           <% end %>
+        <% end %>
         </p>
       </div>
-
-
     <% end %>
   </div>
 </div>
