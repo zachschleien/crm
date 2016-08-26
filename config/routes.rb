@@ -10,10 +10,13 @@ Rails.application.routes.draw do
 
 
   resources :contacts do
-      resources :history do
+      resources :history, only: [:index, :patch] do
         member do
           patch :send_to_history
         resources :conversations do
+          # member do
+          patch :restore_conversation
+        # end
       end
     end
   end

@@ -32,6 +32,12 @@ class ContactsController < ApplicationController
     end
   end
 
+  def restore_conversation
+    @conversation = @contact.conversations.where(history: true)
+    @conversation.update_attribute(:history, false)
+    redirect_to contact_url
+  end
+
   def destroy
     @contact.destroy
     redirect_to root_url, notice: 'Contact was successfully deleted.'
