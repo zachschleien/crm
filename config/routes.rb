@@ -14,6 +14,9 @@ Rails.application.routes.draw do
         member do
           patch :send_to_history
         resources :conversations do
+          # member do
+          patch :restore_conversation
+        # end
       end
     end
   end
