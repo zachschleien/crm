@@ -23,8 +23,13 @@
   <%= link_to 'Delete Conversation', contact_conversation_path(@contact, conversation.id), method: :delete, data: { confirm: "Are you sure?" }
  %> |
 
+<% if @history == nil %>
  <%= link_to 'Send Conversation to History', send_to_history_contact_history_path(@contact, conversation.id), method: :patch %> |
- <%= link_to 'Back', contacts_path %>
+  <%= link_to 'Back', contacts_path %>
+<% else %>
+  <%= link_to 'Back', contacts_path %>
+<% end %>
+
 </div>
 
 <br>
