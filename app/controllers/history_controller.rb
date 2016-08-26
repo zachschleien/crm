@@ -7,6 +7,7 @@ class HistoryController < ApplicationController
 
   def show
    @history = @contact.conversations.where(history: true)
+    flash[:success] = "Conversation was sent to history."
   end
 
   def send_to_history
