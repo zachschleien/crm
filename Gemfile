@@ -10,10 +10,10 @@ gem 'turbolinks', '~> 5.x'
 gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 4.1', '>= 4.1.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'pg', '~> 0.18.2'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'sqlite3'
 end
 
 group :development do
@@ -25,7 +25,6 @@ group :development do
 end
 
 group :production, :test do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
