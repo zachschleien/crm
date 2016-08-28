@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :set_contact
-  before_action :set_conversation, except: [:create, :new]
+  before_action :set_conversation, except: [:create, :new, :restore_conversation]
 
   def new
     @conversation = @contact.conversations.build
@@ -30,6 +30,18 @@ class ConversationsController < ApplicationController
       flash[:error] = "Conversation could not be deleted."
     end
     redirect_to @contact
+  end
+
+  def send_to_history
+    @conversation = @contact.conversations.find(params[:id])
+    @conversation.update_attribute(:history, true)
+    redirect_to contact_history_index_url, notice: 'Conversation was successfully archived.'
+  end
+
+  def restore_conversation
+    @conversation = @contact.conversations.find(params[:id])
+    @conversation.update_attribute(:history, false)
+    redirect_to @contact, notice: 'Conversation was successfully restored.'
   end
 
   private

@@ -4,8 +4,12 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = Contact.all.order('created_at DESC')
-    @conversations = Conversation.where(history: false).order("created_at ASC")
+    # @conversations = Conversation.where(history: false).order("created_at ASC")
   end
+
+  # def show
+  #   @conversations = Conversation.all.order("created_at DESC").where(history: false)
+  # end
 
   def new
     @contact = current_user.contacts.build
@@ -32,11 +36,7 @@ class ContactsController < ApplicationController
     end
   end
 
-  def restore_conversation
-    @conversation = @contact.conversations.where(history: true)
-    @conversation.update_attribute(:history, false)
-    redirect_to contact_url
-  end
+
 
   def destroy
     @contact.destroy
