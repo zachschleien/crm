@@ -13,7 +13,7 @@ class HistoryController < ApplicationController
   def send_to_history
     @conversation = @contact.conversations.find(params[:id])
     @conversation.update_attribute(:history, true)
-    redirect_to root_url
+    redirect_to @contact
   end
 
 private
