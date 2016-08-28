@@ -9,7 +9,7 @@
 <br>
 
 <div id="conversations_wrapper">
-  <%= render @contact.conversations.where(history: false) %>
+    <%= render @contact.conversations.where(history: false).order("created_at DESC") %>
 </div>
 
 
