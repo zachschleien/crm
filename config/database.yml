@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: crm_development
   pool: 5
-  username: crm_admin
+  username: 
   password:
   timeout: 5000
 
@@ -12,7 +12,7 @@ test:
   encoding: unicode
   database: crm_test
   pool: 5
-  username: crm_admin
+  username: 
   password:
   timeout: 5000
 
