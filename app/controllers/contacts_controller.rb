@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @contacts = Contact.all.order('created_at DESC')
+    @contacts = current_user.contacts.all.order('created_at DESC')
     # @conversations = Conversation.where(history: false).order("created_at ASC")
   end
 
