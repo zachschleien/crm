@@ -10,7 +10,7 @@
     <% @contacts.each do |contact| %>
       <div class="contact">
         <% if contact.avatar.file? %>
-         <%= link_to image_tag(contact.avatar.url(:thumb)), contact %>
+         <%= link_to image_tag(contact.avatar.url(:thumb), class: "img-responsive img-circle"), contact %>
         <% end %>
         <h2 class="name">
           <%= link_to contact.name, contact %>
