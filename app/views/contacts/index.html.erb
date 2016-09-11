@@ -9,13 +9,16 @@
    <% end %>
     <% @contacts.each do |contact| %>
       <div class="contact">
+        <% if contact.avatar.file? %>
+         <%= link_to image_tag(contact.avatar.url(:thumb), class: "img-responsive img-circle"), contact %>
+        <% end %>
         <h2 class="name">
           <%= link_to contact.name, contact %>
         </h2>
           <%= link_to 'Edit', edit_contact_path(contact) %> |
           <%= link_to 'Delete', contact_path(contact), method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
 
