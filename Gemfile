@@ -13,6 +13,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'pg', '~> 0.18.2'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'omniauth-facebook'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri
