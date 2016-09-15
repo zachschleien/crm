@@ -1,5 +1,15 @@
 <h2>Log in</h2>
 
+<% if current_user.present? %>
+  Welcome <%= current_user.first_name %>!
+<% else %>
+  <%= link_to 'Signin', new_user_session_path %>
+  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+
+  <% # Or %>
+  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<% end %>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />

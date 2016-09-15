@@ -1,14 +1,4 @@
 Rails.application.routes.draw do
-
-  # resources :todo_lists do
-  #     resources :todo_items do
-  #       member do
-  #         patch :complete
-  #       end
-  #     end
-  #   end
-
-
   resources :contacts do
     resources :history, only: [:index]
       resources :conversations do
@@ -19,10 +9,6 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'contacts#index'
-  # get 'contacts/:id/history' => 'history#show'
-  # put 'contacts/:id/history' => 'history#update', as: 'history'
-  # # match "users/:id/downgrade" => "users#downgrade", :as => "downgrade_user", via: [:get, :post]
-
 end
