@@ -13,6 +13,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'pg', '~> 0.18.2'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'aws-sdk', '< 2.0'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -24,6 +25,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 end
 
 group :production, :test do
