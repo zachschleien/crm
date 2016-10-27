@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
 
+  root 'contacts#index'
+
+  devise_for  :users, 
+              :path => '', 
+              :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
+              :controllers => {:omniauth_callbacks => 'omniauth_callbacks',
+                               :registrations => 'registrations'
+                              }
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  # resources :todo_lists do
-  #     resources :todo_items do
-  #       member do
-  #         patch :complete
-  #       end
-  #     end
-  #   end
-
 
   resources :contacts do
     resources :history, only: [:index]
@@ -20,11 +21,5 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  devise_for :users
-  root 'contacts#index'
-  # get 'contacts/:id/history' => 'history#show'
-  # put 'contacts/:id/history' => 'history#update', as: 'history'
-  # # match "users/:id/downgrade" => "users#downgrade", :as => "downgrade_user", via: [:get, :post]
-
+  
 end

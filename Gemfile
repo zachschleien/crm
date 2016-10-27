@@ -15,6 +15,8 @@ gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'aws-sdk', '< 2.0'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'activeadmin', github: 'activeadmin'
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'omniauth-facebook', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
