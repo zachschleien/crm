@@ -17,6 +17,8 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'activeadmin', github: 'activeadmin'
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'omniauth-facebook', '~> 4.0'
+gem 'whenever', '~> 0.9.4', :require => false
+
 
 group :development, :test do
   gem 'byebug', platform: :mri

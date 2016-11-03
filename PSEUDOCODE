@@ -53,7 +53,18 @@ MODEL
 
   end
 
-CONTROLLER
+CONTROLLER 
 @conversations = @contact.filter_by_history(@contact.conversations)
+
+----------------------------------------------------------------------------
+EMAIL REMINDERS
+1 Add to user migration "email_reminder" attribute
+2 As a boolean 0 = never; 1 = 1 day before event
+3 VIEW: email preferences page
+4 GEM: whenever gem
+5 Cron job will run every day (checking the booleans for each user every day)
+6 RAKE TASK: 
+7 Integrate Heroku Scheduler
+
 
 
