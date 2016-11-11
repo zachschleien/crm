@@ -17,10 +17,29 @@
 namespace :notifications do
   desc "Sends notifications"
   task :reminder_email => :environment do
-    User.all.each do |user|
-      if user.email_reminder == true && conversations.follow_up_date == Time.now - 1
-        ActionMailer.reminder_email(user).deliver_now
+    User.find_each do |user|
+			contact = user.contacts.each do |contact|
+    	require'pry';binding.pry
+		    conversation = contact.conversations.each do |conversation|
+			      WHERE user.email_reminder && conversation.follow_up_date >= Time.now - 1.day
+			      # user.email_reminder && conversation.follow_up_date >= Time.now - 1.day
+	        ActionMailer.reminder_email(user).deliver_now
+	      end
       end
     end
   end
 end
+
+# namespace :notifications do
+#   desc "Sends notifications"
+# 	  task :reminder_email => :environment do
+# 	    User.find.each do |user|
+# 			contact = user.contacts.each do |contact|
+# 			      if user.email_reminder == true && conversation.follow_up_date == Time.now - 1
+# 		        ActionMailer.reminder_email(user).deliver_now
+#           end
+#         end 
+#       end
+#     end
+#   end
+# end
