@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>This is a reminder for, <%= @user.name %></h1>
+    <p>
+      You have a conversation tomorrow with: <%= @current_user.contact.conversations.last %>.<br>
+    </p>
+    <p>
+      You will be speaking about...<br>
+    </p>
+    <p>Thanks for using My CRM Network and good luck!</p>
+  </body>
+</html>
