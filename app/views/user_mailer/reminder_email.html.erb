@@ -4,9 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>This is a reminder for, <%= @user.name %></h1>
+    <h1>This is a reminder for, <%= @user.email %></h1>
     <p>
-      You have a conversation tomorrow with: <%= @current_user.contact.conversations.last %>.<br>
+      You have a conversation tomorrow with: <%= Contact.last %>.<br>
     </p>
     <p>
       You will be speaking about...<br>
