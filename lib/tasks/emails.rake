@@ -17,12 +17,15 @@
 namespace :notifications do
   desc "Sends notifications"
   task :reminder_email => :environment do
-    User.find_each do |user|
-    Conversation.includes(:contacts => :users).where(user: { email_reminder: true }).where('follow_up_date > ?', Date.today - 1)
-      ActionMailer.reminder_email(user).deliver_now
-    end
+  	users = User.all
+    users.each do |user|
+    # Conversation.includes(:contacts => :users).where(user: { email_reminder: true }).where('follow_up_date > ?', Date.today - 1)
+  	UserMailer.reminder_email(user).deliver
+  	puts user.email
+		end
+	end
   end
-end
+
 
 # namespace :notifications do
 #   desc "Sends notifications"
