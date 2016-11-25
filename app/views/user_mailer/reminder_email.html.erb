@@ -6,10 +6,19 @@
   <body>
     <h1>This is a reminder for, <%= @user.email %></h1>
     <p>
-      You have a conversation tomorrow with: <%= Contact.last %>.<br>
+
+
+      You have <%= pluralize(@convos.count, 'conversation') %>: 
+  
     </p>
     <p>
-      You will be speaking about...<br>
+      You will be speaking about: <br>
+     <% @convos.each do |convo| %>
+      <br>
+        <strong><%= convo.topic %></strong>
+        with <strong><%= convo.contact.name %></strong>
+      <% end %>
+
     </p>
     <p>Thanks for using My CRM Network and good luck!</p>
   </body>
