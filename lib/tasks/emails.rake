@@ -14,42 +14,17 @@
 # It'll take a bunch of customization tho, because I don't really know how your computers crontab will know to run the rake command on the correct application
 # So... essentially, whenever is probably not useful for you. If you want to run locally to test out, just run the rake command manually.
 
+require 'pry'
+
 namespace :notifications do
   desc "Sends notifications"
   task :reminder_email => :environment do
-    User.find_each do |user|
-    Conversation.includes(:contacts => :users).where(user: { email_reminder: true }).where('follow_up_date > ?', Date.today - 1)
-      ActionMailer.reminder_email(user).deliver_now
+  
+    users = User.where({:email_reminder => true })
+    @user = users.each do |u|
+
+      UserMailer.reminder_email(u).deliver
     end
   end
 end
 
-# namespace :notifications do
-#   desc "Sends notifications"
-#   task :reminder_email => :environment do
-#     # User.find_each do |user|
-# 			# contact = user.contacts.each do |contact|
-# 		 #    conversation = contact.conversations.each do |conversation|
-#           Conversation.includes(:contacts => :users).where(user: { email_reminder: true }).where('follow_up_date > ?', Date.today - 1)
-# 			      # WHERE user.email_reminder && conversation.follow_up_date >= Time.now - 1.day
-# 			      # user.email_reminder && conversation.follow_up_date >= Time.now - 1.day
-# 	        ActionMailer.reminder_email(user).deliver_now
-# 	     #  end
-#       # end
-#     # end
-#   end
-# end
-
-# namespace :notifications do
-#   desc "Sends notifications"
-# 	  task :reminder_email => :environment do
-# 	    User.find.each do |user|
-# 			contact = user.contacts.each do |contact|
-# 			      if user.email_reminder == true && conversation.follow_up_date == Time.now - 1
-# 		        ActionMailer.reminder_email(user).deliver_now
-#           end
-#         end 
-#       end
-#     end
-#   end
-# end
