@@ -3,8 +3,8 @@ class UserMailer < ActionMailer::Base
 
   def reminder_email(user)
     @user = user
-    @convos = []
     users = User.all
+    @convos = []
     users.each do |u|
 	    if u.email_reminder == true 
 	      @contacts = u.contacts.all
@@ -12,13 +12,17 @@ class UserMailer < ActionMailer::Base
 	          contact.conversations.each do |conversation|
 	            if conversation.follow_up_date.in_time_zone.utc == Date.tomorrow.in_time_zone.utc
 	              @convos << conversation
-	              # binding.pry
-		            end
+	              @convos.each do |convo|
+	              	if convo.contact.user == @user
+										mail(to: @user.email, subject: 'Upcoming Conversation')
+		              end
+	              end
 	            end
-	          end
-	        end
-			 end
-				mail(to: @user.email, subject: 'Upcoming Conversation')
+            end
+          end
+        end
+		 end
+	              # binding.pry
 		end
 end
 

@@ -8,16 +8,25 @@
     <p>
 
 
-      You have <%= pluralize(@convos.count, 'conversation') %>: 
+      You have <%= pluralize(@convos.count, 'upcoming conversation') %>: 
   
     </p>
     <p>
-      You will be speaking about: <br>
-     <% @convos.each do |convo| %>
-      <br>
-        <strong><%= convo.topic %></strong>
-        with <strong><%= convo.contact.name %></strong>
-      <% end %>
+      Conversation details: <br>
+
+         <% @convos.each do |convo| %>
+        
+
+          <br>
+            <strong>Contact: </strong><%= convo.contact.name %>
+            <br>
+            <strong>Topic: </strong><%= convo.topic %>
+            <br>
+            <strong>Next Step: </strong><%= convo.next_step %>
+            <br>
+          <% end %>
+
+
 
     </p>
     <p>Thanks for using My CRM Network and good luck!</p>
