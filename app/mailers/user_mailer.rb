@@ -6,22 +6,21 @@ class UserMailer < ActionMailer::Base
     users = User.all
     @convos = []
     users.each do |u|
-	    if u.email_reminder == true 
+	     
 	      @contacts = u.contacts.all
 	        @contacts.each do |contact|
 	          contact.conversations.each do |conversation|
-	            if conversation.follow_up_date.in_time_zone.utc == Date.tomorrow.in_time_zone.utc
-	              @convos << conversation
-	              @convos.each do |convo|
-	              	if convo.contact.user == @user
-										mail(to: @user.email, subject: 'Upcoming Conversation')
-		              end
-	              end
+					    if (u.email_reminder == true) && (conversation.follow_up_date.in_time_zone.utc == Date.tomorrow.in_time_zone.utc)
+						    	# && (convo.contact.user == @user)
+				            @convos << conversation
+									require 'pry';binding.pry
+											mail(to: @user.email, subject: 'Upcoming Conversation')
+	              # end
 	            end
             end
           end
         end
-		 end
+
 	              # binding.pry
 		end
 end

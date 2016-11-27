@@ -5,30 +5,31 @@
   </head>
   <body>
     <h1>This is a reminder for, <%= @user.email %></h1>
+    
+    <% @user_convos = [] %>
+    <% @convos.each do |convo| %>
+      <% if convo.contact.user == @user %>
+        <% @user_convos << convo %>
+      <% end %>
+    <% end %>
+    
+    <p>You have <%= pluralize(@user_convos.count, 'upcoming conversation') %>
+    <p> Conversation details: </p>
+    <br>
     <p>
+      <% @user_convos.each do |user_convo| %>
+        <strong>Contact: </strong><%= user_convo.contact.name %>
+        <br>
+        <strong>Topic: </strong><%= user_convo.topic %>
+        <br>
+        <strong>Next Step: </strong><%= user_convo.next_step %>
+        <br>
+        <strong>Follow Up Date: </strong><%= user_convo.follow_up_date %>
 
-
-      You have <%= pluralize(@convos.count, 'upcoming conversation') %>: 
-  
+      <br>
     </p>
-    <p>
-      Conversation details: <br>
-
-         <% @convos.each do |convo| %>
-        
-
-          <br>
-            <strong>Contact: </strong><%= convo.contact.name %>
-            <br>
-            <strong>Topic: </strong><%= convo.topic %>
-            <br>
-            <strong>Next Step: </strong><%= convo.next_step %>
-            <br>
-          <% end %>
-
-
-
-    </p>
+      <% end %>
+      <br>
     <p>Thanks for using My CRM Network and good luck!</p>
   </body>
 </html>

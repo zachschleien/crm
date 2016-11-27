@@ -19,10 +19,8 @@ require 'pry'
 namespace :notifications do
   desc "Sends notifications"
   task :reminder_email => :environment do
-  
     users = User.where({:email_reminder => true })
     @user = users.each do |u|
-
       UserMailer.reminder_email(u).deliver
     end
   end
